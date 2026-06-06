@@ -25,7 +25,7 @@ export class CodeExecutorTool extends Tool {
         }
 
         return new Promise((resolve) => {
-            exec(`node --experimental-permission --allow-fs-read="" --allow-fs-write="" -e ${JSON.stringify(code)}`,{
+            exec(`node -e ${JSON.stringify(code)}`,{
                 timeout: 5000, // 设置执行超时时间，防止无限循环等问题
                 maxBuffer: 100 * 1024  // 设置最大输出缓冲区，防止输出过大导致问题
             }, (error, stdout, stderr) => {
